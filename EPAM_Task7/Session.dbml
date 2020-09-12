@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Task7_DB" Class="SessionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=USER-PC\ACCELERATOR;Initial Catalog=Task7_DB;Integrated Security=True" SettingsObjectName="EPAM_Task7.Properties.Settings" SettingsPropertyName="Task7_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Credit" Member="Credits">
+    <Type Name="Credit">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisciplineID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ExaminerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Credit_CreditResult" Member="CreditResults" ThisKey="ID" OtherKey="CreditID" Type="CreditResult" />
+      <Association Name="Discipline_Credit" Member="Discipline" ThisKey="DisciplineID" OtherKey="ID" Type="Discipline" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Examiner_Credit" Member="Examiner" ThisKey="ExaminerID" OtherKey="ID" Type="Examiner" IsForeignKey="true" />
+      <Association Name="Session_Credit" Member="Session" ThisKey="SessionID" OtherKey="ID" Type="Session" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CreditResult" Member="CreditResults">
+    <Type Name="CreditResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreditID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Result" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Credit_CreditResult" Member="Credit" ThisKey="CreditID" OtherKey="ID" Type="Credit" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Student_CreditResult" Member="Student" ThisKey="StudentID" OtherKey="ID" Type="Student" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Discipline" Member="Disciplines">
+    <Type Name="Discipline">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Discipline_Credit" Member="Credits" ThisKey="ID" OtherKey="DisciplineID" Type="Credit" />
+      <Association Name="Discipline_Exam" Member="Exams" ThisKey="ID" OtherKey="DisciplineID" Type="Exam" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Exam" Member="Exams">
+    <Type Name="Exam">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SessionID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DisciplineID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ExaminerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Exam_ExamResult" Member="ExamResults" ThisKey="ID" OtherKey="ExamID" Type="ExamResult" />
+      <Association Name="Discipline_Exam" Member="Discipline" ThisKey="DisciplineID" OtherKey="ID" Type="Discipline" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Examiner_Exam" Member="Examiner" ThisKey="ExaminerID" OtherKey="ID" Type="Examiner" IsForeignKey="true" />
+      <Association Name="Session_Exam" Member="Session" ThisKey="SessionID" OtherKey="ID" Type="Session" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Examiner" Member="Examiners">
+    <Type Name="Examiner">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Examiner_Credit" Member="Credits" ThisKey="ID" OtherKey="ExaminerID" Type="Credit" />
+      <Association Name="Examiner_Exam" Member="Exams" ThisKey="ID" OtherKey="ExaminerID" Type="Exam" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExamResult" Member="ExamResults">
+    <Type Name="ExamResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StudentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExamID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Result" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Exam_ExamResult" Member="Exam" ThisKey="ExamID" OtherKey="ID" Type="Exam" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Student_ExamResult" Member="Student" ThisKey="StudentID" OtherKey="ID" Type="Student" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Group]" Member="Groups">
+    <Type Name="Group">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SpecialtyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Group_Session" Member="Sessions" ThisKey="ID" OtherKey="GroupID" Type="Session" />
+      <Association Name="Group_Student" Member="Students" ThisKey="ID" OtherKey="GroupID" Type="Student" />
+      <Association Name="Specialty_Group" Member="Specialty" ThisKey="SpecialtyID" OtherKey="ID" Type="Specialty" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Session" Member="Sessions">
+    <Type Name="Session">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SesmesterNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Session_Credit" Member="Credits" ThisKey="ID" OtherKey="SessionID" Type="Credit" />
+      <Association Name="Session_Exam" Member="Exams" ThisKey="ID" OtherKey="SessionID" Type="Exam" />
+      <Association Name="Group_Session" Member="Group" ThisKey="GroupID" OtherKey="ID" Type="Group" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Specialty" Member="Specialties">
+    <Type Name="Specialty">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Specialty_Group" Member="Groups" ThisKey="ID" OtherKey="SpecialtyID" Type="Group" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Student_CreditResult" Member="CreditResults" ThisKey="ID" OtherKey="StudentID" Type="CreditResult" />
+      <Association Name="Student_ExamResult" Member="ExamResults" ThisKey="ID" OtherKey="StudentID" Type="ExamResult" />
+      <Association Name="Group_Student" Member="Group" ThisKey="GroupID" OtherKey="ID" Type="Group" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+</Database>

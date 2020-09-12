@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM_Task7", "EPAM_Task7\EPAM_Task7.csproj", "{74DAE8C5-15C7-49D1-9F5F-18C3B1961430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM_Task7_Test", "EPAM_Task7_Test\EPAM_Task7_Test.csproj", "{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74DAE8C5-15C7-49D1-9F5F-18C3B1961430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74DAE8C5-15C7-49D1-9F5F-18C3B1961430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74DAE8C5-15C7-49D1-9F5F-18C3B1961430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74DAE8C5-15C7-49D1-9F5F-18C3B1961430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B51ACD9-651E-4CE4-A94B-267A0E186D45}
+	EndGlobalSection
+EndGlobal
