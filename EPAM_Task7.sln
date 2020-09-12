@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM_Task7", "EPAM_Task7\EP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAM_Task7_Test", "EPAM_Task7_Test\EPAM_Task7_Test.csproj", "{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Task7_DB", "Task7_DB\Task7_DB.sqlproj", "{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CADADEFE-AB61-48B0-BA0C-C420FAFF4D8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EBF4BE6-338D-4F4D-90C5-80DAC931426A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

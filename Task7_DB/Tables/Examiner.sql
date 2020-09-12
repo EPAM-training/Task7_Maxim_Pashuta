@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Examiner]
+(
+	[ID] INT PRIMARY KEY NOT NULL,
+	[FullName] NVARCHAR(max) NOT NULL
+)
